@@ -1,0 +1,15 @@
+{
+    "editor.fontFamily": "Hermit,Hasklig, 'Envy Code'",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": false
+    },
+    "eslint.format.enable": true
+}
