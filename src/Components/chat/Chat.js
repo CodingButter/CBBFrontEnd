@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "./node_modules/react"
 import Message from "./Message"
 import FilterInput from "./FilterInput"
-import ViewCount from "../feeds/ViewCount"
+import { ViewCounter } from "../shared/Widgets"
 
 export default ({ socket }) => {
     console.log(socket)
@@ -17,7 +17,7 @@ export default ({ socket }) => {
 
     return (
         <div id="widget-wrapper">
-            <ViewCount socket={socket} />
+            <ViewCounter socket={socket} />
             <FilterInput setFilter={setMessageFilter} />
             <div className="chat-box">
                 {messages &&

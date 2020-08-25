@@ -1,4 +1,4 @@
-import React from "react"
+import React from "./node_modules/react"
 import UserLogo from "./UserLogo"
 import MessageBody from "./MessageBody"
 import UserDisplayName from "./UserDisplayName"
