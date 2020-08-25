@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "./node_modules/react"
+import React, { useState, useEffect } from "react"
 import Message from "./Message"
 import FilterInput from "./FilterInput"
-import { ViewCounter } from "../shared/Widgets"
+import { ViewCounter } from "../Widgets"
 
 export default ({ socket }) => {
-    console.log(socket)
     const [messages, setMessages] = useState([])
     const [messageFilter, setMessageFilter] = useState("")
 
@@ -16,28 +15,30 @@ export default ({ socket }) => {
     }, [socket])
 
     return (
-        <div id="widget-wrapper">
-            <ViewCounter socket={socket} />
-            <FilterInput setFilter={setMessageFilter} />
-            <div className="chat-box">
-                {messages &&
-                    messages
-                        .filter(message => {
-                            const matches = message.message.match(
-                                new RegExp(messageFilter, "g")
-                            )
-                            return matches
-                        })
-                        .reverse()
-                        .map(({ tags, message }) => {
-                            return (
-                                <Message
-                                    tags={tags}
-                                    message={message}
-                                    key={tags.id}
-                                />
-                            )
-                        })}
+        <div className="chat container">
+            <div className="chatbox container">
+                <ViewCounter socket={socket} />
+                <FilterInput setFilter={setMessageFilter} />
+                <div className="chatbox">
+                    {messages &&
+                        messages
+                            .filter(message => {
+                                const matches = message.message.match(
+                                    new RegExp(messageFilter, "g")
+                                )
+                                return matches
+                            })
+                            .reverse()
+                            .map(({ tags, message }) => {
+                                return (
+                                    <Message
+                                        tags={tags}
+                                        message={message}
+                                        key={tags.id}
+                                    />
+                                )
+                            })}
+                </div>
             </div>
         </div>
     )

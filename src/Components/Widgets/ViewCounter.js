@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "./node_modules/react"
+import React, { useState, useEffect } from "react"
 
 export default ({ socket }) => {
     const [currentViewers, setCurrentViewers] = useState()

@@ -1,5 +1,1 @@
-import ViewCounter from "./ViewCounter"
-
-export default {
-    ViewCounter
-}
+export { default as ViewCounter } from "./ViewCounter"
