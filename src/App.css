@@ -1,1 +1,8 @@
-
+body,
+html,
+#root,#root>div {
+    height : "100%";
+    margin : "0px";
+    padding : "0px";
+}
+ 

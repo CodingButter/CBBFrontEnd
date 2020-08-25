@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Message from "./Message"
 import FilterInput from "./FilterInput"
+import { Wrapper } from "../Shared"
 
 export default ({ socket }) => {
     const [messages, setMessages] = useState([])
@@ -14,7 +15,7 @@ export default ({ socket }) => {
     }, [socket])
 
     return (
-        <div className="chat container">
+        <Wrapper>
             <div className="chatbox container">
                 <FilterInput setFilter={setMessageFilter} />
                 <div className="chatbox">
@@ -38,6 +39,6 @@ export default ({ socket }) => {
                             })}
                 </div>
             </div>
-        </div>
+        </Wrapper>
     )
 }

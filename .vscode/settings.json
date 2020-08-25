@@ -3,12 +3,16 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
+    "editor.tabCompletion": "on",
     "editor.formatOnSave": true,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": false
     },
     "[javascriptreact]": {
+        "editor.formatOnSave": false
+    },
+    "[css]": {
         "editor.formatOnSave": false
     },
     "eslint.format.enable": true,

@@ -1,3 +1,4 @@
 import ProgressBar from "./ProgressBar"
+import Wrapper from "./Wrapper"
 
-export { ProgressBar }
+export { ProgressBar, Wrapper }
