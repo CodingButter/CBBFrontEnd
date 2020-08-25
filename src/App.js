@@ -1,14 +1,13 @@
 import React from "react"
-import { Router, Route } from "@reach/router"
+import { Router } from "@reach/router"
 import Chat from "./Components/Chat"
 import Drop from "./Components/Drop"
 import Events from "./Components/Events"
-// import Widgets from "./Components/Widgets"
 import io from "socket.io-client"
 
 import * as widgets from "./Components/Widgets/"
 
-const ENDPOINT = "http://2601:407:8680:5df0:45e8:e46c:294e:7b3:8080" // TODO Move ENPOINT to the .env file
+const ENDPOINT = "localhost:8080" // TODO Move ENPOINT to the .env file
 const socket = io(ENDPOINT, { secure: false })
 
 function App() {

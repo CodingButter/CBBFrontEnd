@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 export default ({ socket }) => {
-    const [currentViewers, setCurrentViewers] = useState()
+    const [currentViewers, setCurrentViewers] = useState(0)
 
     useEffect(() => {
         socket.on("updateCurrentViewers", ({ currentViewerCount }) => {
