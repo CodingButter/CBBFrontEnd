@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Message from "./Message"
 import FilterInput from "./FilterInput"
-import { ViewCounter } from "../Widgets"
 
 export default ({ socket }) => {
     const [messages, setMessages] = useState([])
@@ -17,7 +16,6 @@ export default ({ socket }) => {
     return (
         <div className="chat container">
             <div className="chatbox container">
-                <ViewCounter socket={socket} />
                 <FilterInput setFilter={setMessageFilter} />
                 <div className="chatbox">
                     {messages &&

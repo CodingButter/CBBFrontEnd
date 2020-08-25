@@ -1,1 +1,3 @@
-export { default as ViewCounter } from "./ViewCounter"
+import Widgets from "./Widgets"
+
+export default Widgets
