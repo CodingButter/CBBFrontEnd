@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "Hermit,Hasklig, 'Envy Code'",
+    "editor.fontFamily": "Hermit, Hasklig, 'Envy Code'",
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
