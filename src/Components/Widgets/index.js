@@ -1,2 +1,1 @@
-import ViewCounter from "./ViewCounter"
-export { ViewCounter }
+export * from "./Widgets"
