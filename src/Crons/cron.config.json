@@ -1,0 +1,10 @@
+{
+    "ViewCounts": {
+        "enabled": true,
+        "override": {
+            "enabled": true,
+            "value": 2
+        },
+        "interval": 10
+    }
+}

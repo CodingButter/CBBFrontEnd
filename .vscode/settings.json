@@ -1,0 +1,65 @@
+{
+    "editor.fontFamily": "Hermit, Hasklig, 'Envy Code'",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.tabCompletion": "on",
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": false
+    },
+    "[css]": {
+        "editor.formatOnSave": false
+    },
+    "eslint.format.enable": true,
+
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "text",
+        "foreground": "blue",
+        "background": "white",
+        "opacity": 50,
+        "iconColour": "red"
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "alert",
+            "type": "line"
+        },
+        "FIXME": {
+            "background": "yellow",
+            "foreground": "white",
+            "iconColour": "yellow",
+            "gutterIcon": true
+        },
+        "BUG": {
+            "icon": "bug",
+            "background": "green",
+            "foreground": "white",
+            "gutterIcon": true
+        },
+        "COMPLETE": {
+            "background": "none",
+            "foreground": "white",
+            "icon": "check",
+            "iconColour": "white",
+            "gutterIcon": true
+        }
+    },
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "COMPLETE"
+    ],
+    "todo-tree.general.tagGroups": {
+        "FIXME": ["FIXME", "FIXIT", "FIX"]
+    },
+    "todo-tree.filtering.excludeGlobs": ["**/node_modules/*"]
+}
