@@ -1,9 +1,0 @@
-{
-    "BROADCASTER_LOGIN": "codingbutter",
-    "BROADCASTER_ID": 478406654,
-    "TMI_PASSWORD": "oauth:iekd7grgzqwbdnkd9whaxqd0r2r8pn",
-    "CODINBUTTERBOT_CLIENT_ID": "371vqj7o0o399e0vy82tnjj0bsxj8f",
-    "CODINBUTTERBOT_ACCESS_TOKEN": "41fk9e70exdexow4zwwojwwhp8uhs0",
-    "CODINGBUTTERBOT_NAME": "CodingButterBot",
-    "REDIRECT_URI": "http://localhost:3000/authorized"
-}
