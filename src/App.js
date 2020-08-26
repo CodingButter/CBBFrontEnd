@@ -1,19 +1,28 @@
 import React, { useState } from "react"
 import { Router } from "@reach/router"
 import Chat from "./Components/Chat"
+import EnableBot from "./Components/EnableBot"
+import Authorized from "./Components/EnableBot/Authorized"
 import Drop from "./Components/Drop"
 import Events from "./Components/Events"
-import io from "socket.io-client"
 import * as Themes from "./Themes"
 import { ThemeProvider } from "styled-components"
+import ChatCommands from "./ChatCommands"
+import { TMIClient as client } from "./APIS"
+import "./Crons"
+
 import "./App.css"
 
 import * as widgets from "./Components/Widgets/"
 
-const ENDPOINT = "localhost:8080" // TODO Move ENPOINT to the .env file
-const socket = io(ENDPOINT, { secure: false })
-
 function App() {
+    client.connect().catch(console.error)
+    client.on("message", (channel, tags, message, self) => {
+        ChatCommands(channel, tags, message, self, client)
+    })
+
+    // TODO get subscriptions working
+    //client.on("subscription", Subscription)
     const inititialTheme = localStorage.theme || "Darkula"
     const [theme, setTheme] = useState(inititialTheme)
 
@@ -42,20 +51,20 @@ function App() {
                 {theme}
             </button>
             <Router>
-                <Chat path="/chat" socket={socket} />
-                <Drop path="/drop" socket={socket} />
-                <Events path="/events/:eventType" socket={socket} />
+                <EnableBot path="/" />
+                <Authorized path="/authorized" />
+                <Chat path="/chat" />
+                <Drop path="/drop" />
+                <Events path="/events/:eventType" />
                 {allWidgets &&
                     allWidgets.map(widget => {
                         return (
                             <React.Fragment key={widget.name}>
                                 <widget.component
                                     path={`/widgets/${widget.name}`}
-                                    socket={socket}
                                 />
                                 <widget.component
                                     path={`/widgets/${widget.name.toLowerCase()}`}
-                                    socket={socket}
                                 />
                             </React.Fragment>
                         )

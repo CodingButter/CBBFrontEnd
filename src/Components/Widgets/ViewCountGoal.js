@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { ProgressBar } from "../Shared"
+import { EmitterInstance } from "../../Utilities"
 
-export default ({ socket }) => {
+export default () => {
     const [currentViewers, setCurrentViewers] = useState(0)
-    const [viewerGoal, setViewerGoal] = useState(localStorage.viewerGoal)
+    const [viewerGoal, setViewerGoal] = useState(
+        localStorage.getItem("viewerGoal")
+    )
     const updateState = viewerGoal => {
         const updatedGoal = parseInt(viewerGoal)
         setViewerGoal(updatedGoal)
         localStorage.setItem("viewerGoal", updatedGoal)
     }
     useEffect(() => {
-        socket.on("updateViewerGoal", ({ viewerGoal }) => {
-            console.log({ viewerGoal })
+        EmitterInstance.on("updateViewerGoal", ({ viewerGoal }) => {
             updateState(viewerGoal)
         })
-        socket.on("updateCurrentViewers", ({ currentViewerCount }) => {
-            console.log({ currentViewerCount })
+        EmitterInstance.on("updateCurrentViewers", ({ currentViewerCount }) => {
             setCurrentViewers(currentViewerCount)
         })
-    }, [socket])
+    }, [])
 
     const Container = styled.div``
 

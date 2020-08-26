@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react"
+import { EmitterInstance } from "../../Utilities"
 
-export default ({ socket }) => {
+export default () => {
     const [currentViewers, setCurrentViewers] = useState(0)
 
     useEffect(() => {
-        socket.on("updateCurrentViewers", ({ currentViewerCount }) => {
-            console.log(currentViewerCount)
-            setCurrentViewers(currentViewerCount)
-        })
-    }, [socket])
+        EmitterInstance.on(
+            "updatedCurrentViewers",
+            ({ currentViewerCount }) => {
+                setCurrentViewers(currentViewerCount)
+            }
+        )
+    }, [])
 
     return (
         <div className="viewcount-wrapper">

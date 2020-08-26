@@ -4,7 +4,6 @@ import MessageBody from "./MessageBody"
 import UserDisplayName from "./UserDisplayName"
 
 export default ({ tags, message }) => {
-    console.log(tags)
     return (
         <div className="message-wrapper" id={tags.id} key={tags.id}>
             <UserLogo
