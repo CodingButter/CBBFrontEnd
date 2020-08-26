@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react"
 import Message from "./Message"
 import FilterInput from "./FilterInput"
 import { Wrapper } from "../Shared"
-import { EmitterInstance } from "../../Utilities"
 
-export default () => {
+export default ({ EmitterInstance }) => {
     const [messages, setMessages] = useState([])
     const [messageFilter, setMessageFilter] = useState("")
 
@@ -12,7 +11,7 @@ export default () => {
         EmitterInstance.on("newmessage", data => {
             setMessages(oldMessages => [...oldMessages, data])
         })
-    }, [])
+    }, [EmitterInstance])
 
     return (
         <Wrapper>

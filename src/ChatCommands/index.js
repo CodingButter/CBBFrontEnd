@@ -1,4 +1,4 @@
-import { CodingButterBot } from "../APIS"
+import { CodingButterBot, config } from "../APIS"
 import Commands from "./Commands"
 import { EmitterInstance } from "../Utilities"
 
@@ -6,9 +6,7 @@ export default async (channel, tags, message, self, client) => {
     if (tags["user-id"]) {
         tags.userdata = await CodingButterBot.getUserById(tags["user-id"])
     } else {
-        tags.userdata = await CodingButterBot.getUserById(
-            process.env.CHANNEL_ID
-        )
+        tags.userdata = await CodingButterBot.getUserById(config.BROADCASTER_ID)
         tags["display-name"] = "CodingButterBot"
         const time = new Date().getTime()
         tags.id = btoa(time + tags["display-name"] + message)

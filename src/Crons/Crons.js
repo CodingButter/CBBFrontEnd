@@ -1,1 +1,2 @@
-import "./ViewCounts"
+import ViewCounts from "./ViewCounts"
+export { ViewCounts }

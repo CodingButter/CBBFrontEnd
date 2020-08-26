@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { ProgressBar } from "../Shared"
-import { EmitterInstance } from "../../Utilities"
 
-export default () => {
+export default ({ EmitterInstance }) => {
     const [currentViewers, setCurrentViewers] = useState(0)
     const [viewerGoal, setViewerGoal] = useState(
         localStorage.getItem("viewerGoal")
@@ -20,7 +19,7 @@ export default () => {
         EmitterInstance.on("updateCurrentViewers", ({ currentViewerCount }) => {
             setCurrentViewers(currentViewerCount)
         })
-    }, [])
+    }, [EmitterInstance])
 
     const Container = styled.div``
 

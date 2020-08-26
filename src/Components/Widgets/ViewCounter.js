@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { EmitterInstance } from "../../Utilities"
 
-export default () => {
+export default ({ EmitterInstance }) => {
     const [currentViewers, setCurrentViewers] = useState(0)
 
     useEffect(() => {
@@ -11,7 +10,7 @@ export default () => {
                 setCurrentViewers(currentViewerCount)
             }
         )
-    }, [])
+    }, [EmitterInstance])
 
     return (
         <div className="viewcount-wrapper">

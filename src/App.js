@@ -9,18 +9,18 @@ import * as Themes from "./Themes"
 import { ThemeProvider } from "styled-components"
 import ChatCommands from "./ChatCommands"
 import { TMIClient as client } from "./APIS"
-import "./Crons"
-
+import { EmitterInstance } from "./Utilities"
+import { ViewCounts } from "./Crons"
 import "./App.css"
-
 import * as widgets from "./Components/Widgets/"
 
-function App() {
-    client.connect().catch(console.error)
-    client.on("message", (channel, tags, message, self) => {
-        ChatCommands(channel, tags, message, self, client)
-    })
+client.connect().catch(console.error)
+client.on("message", (Events, tags, message, self) => {
+    ChatCommands(Events, tags, message, self, client)
+})
 
+ViewCounts(EmitterInstance)
+function App() {
     // TODO get subscriptions working
     //client.on("subscription", Subscription)
     const inititialTheme = localStorage.theme || "Darkula"
@@ -53,8 +53,8 @@ function App() {
             <Router>
                 <EnableBot path="/" />
                 <Authorized path="/authorized" />
-                <Chat path="/chat" />
-                <Drop path="/drop" />
+                <Chat path="/chat" EmitterInstance={EmitterInstance} />
+                <Drop path="/drop" EmitterInstance={EmitterInstance} />
                 <Events path="/events/:eventType" />
                 {allWidgets &&
                     allWidgets.map(widget => {
@@ -62,9 +62,11 @@ function App() {
                             <React.Fragment key={widget.name}>
                                 <widget.component
                                     path={`/widgets/${widget.name}`}
+                                    EmitterInstance={EmitterInstance}
                                 />
                                 <widget.component
                                     path={`/widgets/${widget.name.toLowerCase()}`}
+                                    EmitterInstance={EmitterInstance}
                                 />
                             </React.Fragment>
                         )
