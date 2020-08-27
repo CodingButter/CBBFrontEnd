@@ -1,8 +1,15 @@
 import React from "react"
 import Message from "./Message"
+import styled from "styled-components"
+
+const Messages = styled.div`
+    display: flex;
+    width: 100%;
+`
+
 export default ({ messages, messageFilter }) => {
     return (
-        <div className="chatbox">
+        <Messages className="chatbox">
             {messages &&
                 messages
                     .filter(message => {
@@ -21,6 +28,6 @@ export default ({ messages, messageFilter }) => {
                             />
                         )
                     })}
-        </div>
+        </Messages>
     )
 }
