@@ -55,9 +55,9 @@ class CodingButterBotAPI extends JsonAPI {
     }
 
     async getUserById(id) {
-        const userID = id ? id : process.env.CHANNE_ID
+        const userID = id ? id : config.BROADCASTER_ID
         const usersArray = await this.getUsersByIds([userID])
-        return usersArray[0]
+        return usersArray && Array.isArray(usersArray) && usersArray[0]
     }
 
     async getStreamViewerCount() {

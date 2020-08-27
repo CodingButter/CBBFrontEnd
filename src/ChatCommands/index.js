@@ -19,6 +19,7 @@ export default async (channel, tags, message, self, client) => {
     const command = message.split(" ")[0]
     if (Commands[command]) {
         Commands[command](
+            EmitterInstance,
             message.split(" "),
             channel,
             tags,

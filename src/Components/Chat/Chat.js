@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
-import Message from "./Message"
-import FilterInput from "./FilterInput"
 import { Wrapper } from "../Shared"
+import HeaderWithLogo from "./HeaderWithLogo"
+import SubHeaderWithFilter from "./SubHeaderWithFilter"
+import Messages from "./Messages"
+import styled from "styled-components"
 
 export default ({ EmitterInstance }) => {
     const [messages, setMessages] = useState([])
@@ -15,29 +17,9 @@ export default ({ EmitterInstance }) => {
 
     return (
         <Wrapper>
-            <div className="chatbox container">
-                <FilterInput setFilter={setMessageFilter} />
-                <div className="chatbox">
-                    {messages &&
-                        messages
-                            .filter(message => {
-                                const matches = message.message.match(
-                                    new RegExp(messageFilter, "g")
-                                )
-                                return matches
-                            })
-                            .reverse()
-                            .map(({ tags, message }) => {
-                                return (
-                                    <Message
-                                        tags={tags}
-                                        message={message}
-                                        key={tags.id}
-                                    />
-                                )
-                            })}
-                </div>
-            </div>
+            <HeaderWithLogo />
+            <SubHeaderWithFilter setMessageFilter={setMessageFilter} />
+            <Messages messageFilter={messageFilter} messages={messages} />
         </Wrapper>
     )
 }

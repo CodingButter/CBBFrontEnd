@@ -31,7 +31,9 @@ export default class JsonAPI {
         const response = await fetch(url, options)
 
         if (!response.ok) {
-            throw new Error(response.statusText)
+            // throw new Error(response.statusText)
+            console.warn(response.statusText)
+            return response
         }
         if (jsonResponse === false) {
             return response

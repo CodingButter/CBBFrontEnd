@@ -1,8 +1,6 @@
 import React from "react"
-import UserLogo from "./UserLogo"
+import UserLogo from "../../Shared/UserLogo"
 import MessageBody from "./MessageBody"
-import UserDisplayName from "./UserDisplayName"
-
 export default ({ tags, message }) => {
     return (
         <div className="message-wrapper" id={tags.id} key={tags.id}>
@@ -11,7 +9,7 @@ export default ({ tags, message }) => {
                 displayName={tags["display-name"]}
             />
             <div className="displayname-message-body">
-                <UserDisplayName displayName={tags["display-name"]} />
+                <span>{tags["display-name"]}</span>
                 <MessageBody message={message} />
             </div>
         </div>

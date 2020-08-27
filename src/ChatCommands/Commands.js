@@ -123,9 +123,9 @@ const Commands = {
                 tags
             )
     },*/
-    "!whoami": (args, channel, tags, message, self, client) => {
+    "!whoami": (EmitterInstance, channel, tags, message, self, client) => {
         const response = `You are @${tags["display-name"]}`
-        client.say(channel, response)
+        client && client.say(channel, response)
     }
 }
 
