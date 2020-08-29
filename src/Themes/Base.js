@@ -4,8 +4,8 @@ const Gradients = {
     PrimaryGradientEnd: "#4c302f",
 
     /* Eample Message gradient */
-    SecondaryGradientStart: "#906C56",
-    SecondaryGradientEnd: "#F5A19E"
+    SecondaryGradientStart: "#F5A19E",
+    SecondaryGradientEnd: "#906C56"
 }
 
 const ContainerBackgrounds = {
@@ -25,4 +25,13 @@ const Forground = {
     SecondaryForgroundColor: ContainerBackgrounds.SecondaryContainerBackground
 }
 
-export default { ...Gradients, ...ContainerBackgrounds, ...Forground }
+const ReusedStyles = {
+    PrimaryBorderStyle: `1px solid ${Forground.PrimaryForgroundColor}`
+}
+
+export default {
+    ...Gradients,
+    ...ContainerBackgrounds,
+    ...Forground,
+    ...ReusedStyles
+}

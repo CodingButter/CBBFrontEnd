@@ -3,12 +3,12 @@ import styled from "styled-components"
 
 const UserLogo = styled.div`
     height: 100%;
-    border-radius: 5px;
+    width: 120px;
     overflow: hidden;
-    border: 1px solid white;
 `
 const Img = styled.img`
     height: 100%;
+    border-radius: 5px;
 `
 
 export default ({ logo, displayName }) => {

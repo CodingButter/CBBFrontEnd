@@ -3,13 +3,19 @@ import Message from "./Message"
 import styled from "styled-components"
 
 const Messages = styled.div`
+    height: 100%;
     display: flex;
+    flex-direction: rows;
     width: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 3px 3px inset rgb(0 0 0 / 81%);
+    background: ${props => props.theme.SecondaryContainerBackground};
 `
 
 export default ({ messages, messageFilter }) => {
     return (
-        <Messages className="chatbox">
+        <Messages>
             {messages &&
                 messages
                     .filter(message => {

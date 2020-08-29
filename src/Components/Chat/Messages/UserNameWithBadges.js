@@ -2,7 +2,8 @@ import React from "react"
 import styled from "styled-components"
 
 const UserName = styled.span`
-    backgroundcolor: #333;
+    width: 100%;
+    background-color: ${props => props.theme.SecondaryContainerBackground};
 `
 export default props => {
     return <UserName>{props.displayName}</UserName>

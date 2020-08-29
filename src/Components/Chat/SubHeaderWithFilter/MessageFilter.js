@@ -1,14 +1,27 @@
 import React from "react"
 import styled from "styled-components"
 
-const FilterWrapper = styled.div``
+const FilterInput = styled.input`
+    outline: none;
+    background: none;
+    border: none;
+    padding: 5px;
+    padding-left: 5px;
+    font-size: 18px;
+    margin-left: 5px;
+    color: ${props => props.theme.PrimaryForgroundColor};
+    border-left: 1px solid ${props => props.theme.PrimaryForgroundColor};
+    &::placeholder {
+        color: ${props => props.theme.PrimaryForgroundColor};
+    }
+`
 
 export default ({ setMessageFilter }) => (
-    <FilterWrapper>
-        <input
-            onChange={e => {
-                setMessageFilter(e.target.value)
-            }}
-        />
-    </FilterWrapper>
+    <FilterInput
+        type="text"
+        placeholder="@CodingButter"
+        onChange={e => {
+            setMessageFilter(e.target.value)
+        }}
+    />
 )

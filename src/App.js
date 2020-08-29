@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Router } from "@reach/router"
 import Chat from "./Components/Chat"
 import EnableBot from "./Components/EnableBot"
@@ -24,13 +24,6 @@ function App() {
     // TODO get subscriptions working
     //client.on("subscription", Subscription)
     const inititialTheme = localStorage.theme || "Darkula"
-    const [theme, setTheme] = useState(inititialTheme)
-
-    const handleSetTheme = themeName => {
-        if (!Themes[themeName]) return
-        setTheme(themeName)
-        localStorage.setItem("theme", themeName)
-    }
 
     const allWidgets = Object.keys(widgets).map(key => {
         return {
@@ -40,16 +33,7 @@ function App() {
     })
 
     return (
-        <ThemeProvider theme={Themes[theme]}>
-            <button
-                onClick={({ target }) => {
-                    const newTheme =
-                        theme === "Darkula" ? "Daylight" : "Darkula"
-                    handleSetTheme(newTheme)
-                }}
-            >
-                {theme}
-            </button>
+        <ThemeProvider theme={Themes[inititialTheme]}>
             <Router>
                 <EnableBot path="/" />
                 <Authorized path="/authorized" />
